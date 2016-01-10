@@ -1,0 +1,17 @@
+WhereIsMyBeer\configuration\CsrfHeaderFilter.class
+WhereIsMyBeer\service\serviceImpl\CervejaServiceImpl.class
+WhereIsMyBeer\controller\GenericController.class
+WhereIsMyBeer\repository\CervejaDAO.class
+WhereIsMyBeer\service\service\EstabelecimentoService.class
+WhereIsMyBeer\service\service\UserService.class
+WhereIsMyBeer\service\serviceImpl\EstabelecimentoServiceImpl.class
+WhereIsMyBeer\service\serviceImpl\UserServiceImpl.class
+WhereIsMyBeer\model\Estabelecimento.class
+WhereIsMyBeer\model\User.class
+WhereIsMyBeer\repository\UserDAO.class
+WhereIsMyBeer\WhereIsMyBeerApplication$SecurityConfiguration.class
+WhereIsMyBeer\repository\EstabelecimentoDAO.class
+WhereIsMyBeer\WhereIsMyBeerApplication.class
+WhereIsMyBeer\model\Cerveja.class
+WhereIsMyBeer\service\service\CervejaService.class
+WhereIsMyBeer\controller\UserController.class
