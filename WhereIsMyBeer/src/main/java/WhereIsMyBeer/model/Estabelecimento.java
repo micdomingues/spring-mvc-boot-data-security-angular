@@ -1,13 +1,19 @@
 package WhereIsMyBeer.model;
 
+import WhereIsMyBeer.model.FixedDomains.Cidade;
+
 import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import java.util.List;
 
 /**
  * Created by micdomingues on 23/12/2015.
  */
 @Entity
-@Table(name = "ESTABELECIMENTO")
-public class Estabelecimento {
+@Table(name = "ESTABELECIMENTOS")
+public class Estabelecimento  {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
@@ -15,11 +21,15 @@ public class Estabelecimento {
     @Column(name = "NOME", length = 80, nullable = false)
     private String nome;
 
-    @Column(name = "CIDADE", length = 80, nullable = false)
-    private String cidade;
+    @ManyToOne
+    @JoinColumn(name = "ID_CIDADE", nullable = false)
+    private Cidade cidade;
 
     @Column(name = "BAIRRO", length = 80, nullable = false)
     private String bairro;
+
+    @Column(name = "CNPJ", length = 80, nullable = false)
+    private String cnpj;
 
     @Column(name = "ENDERECO", length = 80, nullable = false)
     private String endereco;
@@ -30,14 +40,35 @@ public class Estabelecimento {
     @Column(name = "DESCRICAO", length = 80, nullable = false)
     private String descricao;
 
-    //FOTO
+    @ManyToOne
+    @JoinColumn(name = "ID_CARDAPIO")
+    private Cardapio cardapio;
 
-    public long getId() {
-        return id;
+    @OneToMany(mappedBy = "estabelecimento", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Evento> eventos;
+
+    @ManyToOne
+    @JoinColumn(name = "ID_RANKING_BAR")
+    private RankingBar rankingBar;
+
+    @Max(5)
+    @Min(0)
+    @Column(name = "AVALIACAO")
+    private int avaliacao;
+
+    @ManyToOne
+    @JoinColumn(name = "ID_DONO_BAR")
+    private User donobar;
+
+    @ManyToOne
+    @JoinColumn(name = "ID_FAVORITADO")
+
+    public RankingBar getRankingBar() {
+        return rankingBar;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setRankingBar(RankingBar rankingBar) {
+        this.rankingBar = rankingBar;
     }
 
     public String getNome() {
@@ -46,14 +77,6 @@ public class Estabelecimento {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public String getCidade() {
-        return cidade;
-    }
-
-    public void setCidade(String cidade) {
-        this.cidade = cidade;
     }
 
     public String getBairro() {
@@ -88,16 +111,59 @@ public class Estabelecimento {
         this.descricao = descricao;
     }
 
-    @Override
-    public String toString() {
-        return "Estabelecimento{" +
-                "id=" + id +
-                ", nome='" + nome + '\'' +
-                ", cidade='" + cidade + '\'' +
-                ", bairro='" + bairro + '\'' +
-                ", endereco='" + endereco + '\'' +
-                ", telefone='" + telefone + '\'' +
-                ", descricao='" + descricao + '\'' +
-                '}';
+    public Cidade getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(Cidade cidade) {
+        this.cidade = cidade;
+    }
+
+    public String getCnpj() {
+        return cnpj;
+    }
+
+    public void setCnpj(String cnpj) {
+        this.cnpj = cnpj;
+    }
+
+    public Cardapio getCardapio() {
+        return cardapio;
+    }
+
+    public void setCardapio(Cardapio cardapio) {
+        this.cardapio = cardapio;
+    }
+
+    public List<Evento> getEventos() {
+        return eventos;
+    }
+
+    public void setEventos(List<Evento> eventos) {
+        this.eventos = eventos;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public int getAvaliacao() {
+        return avaliacao;
+    }
+
+    public void setAvaliacao(int avaliacao) {
+        this.avaliacao = avaliacao;
+    }
+
+    public User getDonobar() {
+        return donobar;
+    }
+
+    public void setDonobar(User donobar) {
+        this.donobar = donobar;
     }
 }

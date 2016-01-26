@@ -1,6 +1,6 @@
 package WhereIsMyBeer.service.serviceImpl;
 
-import WhereIsMyBeer.service.service.EstabelecimentoService;
+import WhereIsMyBeer.service.EstabelecimentoService;
 import org.springframework.stereotype.Service;
 
 /**

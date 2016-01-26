@@ -1,4 +1,4 @@
-angular.module('hello', [ 'ngRoute' ])
+var wimb = angular.module('wimb', [ 'ngRoute' ])
   .config(function($routeProvider, $httpProvider) {
 
 	$routeProvider.when('/', {
@@ -16,9 +16,8 @@ angular.module('hello', [ 'ngRoute' ])
 
   })
   .controller('home', function($scope, $http) {
-    $http.get('usuario/resource/').success(function(data) {
-      $scope.greeting = data;
-    })
+  
+    
   })
 
 .controller('user', function($scope, $http) {
@@ -28,17 +27,15 @@ angular.module('hello', [ 'ngRoute' ])
             email: newUser.email,
             nome: newUser.nome
         };
-         console.log(p);
         $http({url:'usuario/create', method:'POST' , params : p}).success(function(data) {
           console.log(JSON.stringify(data));
             }).error(function(data) {
               console.log(data)
             });
-          }
+      }
 })
-.controller('navigation',
 
-      function($rootScope, $scope, $http, $location) {
+.controller('navigation', function($rootScope, $scope, $http, $location) {
 
       var authenticate = function(credentials, callback) {
 
@@ -50,8 +47,6 @@ angular.module('hello', [ 'ngRoute' ])
 
         $http.get('usuario/user', {headers : headers}).success(function(data) {
           if (data.name) {
-            console.log(data);
-
             $rootScope.authenticated = true;
           } else {
             $rootScope.authenticated = false;
@@ -73,7 +68,6 @@ angular.module('hello', [ 'ngRoute' ])
               $location.path("/");
               $scope.error = false;
             } else {
-              console.log("eeerrou");
               $scope.error = true;
             }
           });

@@ -1,6 +1,6 @@
 package WhereIsMyBeer.service.serviceImpl;
 
-import WhereIsMyBeer.service.service.UserService;
+import WhereIsMyBeer.service.UserService;
 import org.springframework.stereotype.Service;
 
 /**

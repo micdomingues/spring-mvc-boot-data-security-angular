@@ -1,6 +1,7 @@
 package WhereIsMyBeer.configuration;
 
 import org.springframework.security.web.csrf.CsrfToken;
+
 import org.springframework.web.filter.OncePerRequestFilter;
 import org.springframework.web.util.WebUtils;
 
@@ -14,7 +15,8 @@ import java.io.IOException;
 /**
  * Created by micdomingues on 20/12/2015.
  */
-public class CsrfHeaderFilter  extends OncePerRequestFilter {
+public class CsrfHeaderFilter extends OncePerRequestFilter {
+
     @Override
     protected void doFilterInternal(HttpServletRequest request,
                                     HttpServletResponse response, FilterChain filterChain)

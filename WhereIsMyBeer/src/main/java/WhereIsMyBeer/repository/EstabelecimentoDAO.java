@@ -1,9 +1,7 @@
 package WhereIsMyBeer.repository;
 
 import WhereIsMyBeer.model.Estabelecimento;
-import WhereIsMyBeer.model.User;
-import WhereIsMyBeer.service.service.EstabelecimentoService;
-import WhereIsMyBeer.service.service.UserService;
+import WhereIsMyBeer.service.EstabelecimentoService;
 import org.springframework.data.repository.CrudRepository;
 
 /**
